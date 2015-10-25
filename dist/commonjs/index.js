@@ -25,6 +25,15 @@ Object.defineProperty(exports, 'AuthorizeStep', {
 	}
 });
 
+var _appHttpClientConfig = require('./app.httpClient.config');
+
+Object.defineProperty(exports, 'AuthHttpClientConfig', {
+	enumerable: true,
+	get: function get() {
+		return _appHttpClientConfig.AuthHttpClientConfig;
+	}
+});
+
 function configure(aurelia, configCallback) {
 	aurelia.globalResources('./authFilter');
 

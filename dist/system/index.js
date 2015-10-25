@@ -1,4 +1,4 @@
-System.register(['./baseConfig', './authService', './authorizeStep'], function (_export) {
+System.register(['./baseConfig', './authService', './authorizeStep', './app.httpClient.config'], function (_export) {
 	'use strict';
 
 	var BaseConfig;
@@ -21,6 +21,8 @@ System.register(['./baseConfig', './authService', './authorizeStep'], function (
 			_export('AuthService', _authService.AuthService);
 		}, function (_authorizeStep) {
 			_export('AuthorizeStep', _authorizeStep.AuthorizeStep);
+		}, function (_appHttpClientConfig) {
+			_export('AuthHttpClientConfig', _appHttpClientConfig.AuthHttpClientConfig);
 		}],
 		execute: function () {
 			;

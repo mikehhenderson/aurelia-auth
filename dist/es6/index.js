@@ -1,7 +1,6 @@
 export {AuthService} from './authService';
 export {AuthorizeStep} from './authorizeStep';
 export {AuthHttpClientConfig} from './app.httpClient.config';
-
 import {BaseConfig} from './baseConfig';
 
 

@@ -1,13 +1,17 @@
-define(['exports', 'module', 'aurelia-http-client', './baseConfig', './authentication', './storage', 'aurelia-framework'], function (exports, module, _aureliaHttpClient, _baseConfig, _authentication, _storage, _aureliaFramework) {
+define(['exports', 'aurelia-http-client', './baseConfig', './authentication', './storage', 'aurelia-framework'], function (exports, _aureliaHttpClient, _baseConfig, _authentication, _storage, _aureliaFramework) {
 	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _default = (function () {
-		function _default(http, auth, storage, config) {
-			_classCallCheck(this, _default2);
+	var AuthHttpClientConfig = (function () {
+		function AuthHttpClientConfig(http, auth, storage, config) {
+			_classCallCheck(this, _AuthHttpClientConfig);
 
 			this.http = http;
 			this.auth = auth;
@@ -15,7 +19,7 @@ define(['exports', 'module', 'aurelia-http-client', './baseConfig', './authentic
 			this.config = config.current;
 		}
 
-		_createClass(_default, [{
+		_createClass(AuthHttpClientConfig, [{
 			key: 'configure',
 			value: function configure() {
 				var _this = this;
@@ -42,10 +46,10 @@ define(['exports', 'module', 'aurelia-http-client', './baseConfig', './authentic
 			}
 		}]);
 
-		var _default2 = _default;
-		_default = (0, _aureliaFramework.inject)(_aureliaHttpClient.HttpClient, _authentication.Authentication, _storage.Storage, _baseConfig.BaseConfig)(_default) || _default;
-		return _default;
+		var _AuthHttpClientConfig = AuthHttpClientConfig;
+		AuthHttpClientConfig = (0, _aureliaFramework.inject)(_aureliaHttpClient.HttpClient, _authentication.Authentication, _storage.Storage, _baseConfig.BaseConfig)(AuthHttpClientConfig) || AuthHttpClientConfig;
+		return AuthHttpClientConfig;
 	})();
 
-	module.exports = _default;
+	exports.AuthHttpClientConfig = AuthHttpClientConfig;
 });

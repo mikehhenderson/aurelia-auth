@@ -18,9 +18,9 @@ var _storage = require('./storage');
 
 var _aureliaFramework = require('aurelia-framework');
 
-var _default = (function () {
-	function _default(http, auth, storage, config) {
-		_classCallCheck(this, _default2);
+var AuthHttpClientConfig = (function () {
+	function AuthHttpClientConfig(http, auth, storage, config) {
+		_classCallCheck(this, _AuthHttpClientConfig);
 
 		this.http = http;
 		this.auth = auth;
@@ -28,7 +28,7 @@ var _default = (function () {
 		this.config = config.current;
 	}
 
-	_createClass(_default, [{
+	_createClass(AuthHttpClientConfig, [{
 		key: 'configure',
 		value: function configure() {
 			var _this = this;
@@ -55,10 +55,9 @@ var _default = (function () {
 		}
 	}]);
 
-	var _default2 = _default;
-	_default = (0, _aureliaFramework.inject)(_aureliaHttpClient.HttpClient, _authentication.Authentication, _storage.Storage, _baseConfig.BaseConfig)(_default) || _default;
-	return _default;
+	var _AuthHttpClientConfig = AuthHttpClientConfig;
+	AuthHttpClientConfig = (0, _aureliaFramework.inject)(_aureliaHttpClient.HttpClient, _authentication.Authentication, _storage.Storage, _baseConfig.BaseConfig)(AuthHttpClientConfig) || AuthHttpClientConfig;
+	return AuthHttpClientConfig;
 })();
 
-exports['default'] = _default;
-module.exports = exports['default'];
+exports.AuthHttpClientConfig = AuthHttpClientConfig;

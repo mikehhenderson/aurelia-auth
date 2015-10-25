@@ -1,7 +1,7 @@
 System.register(['aurelia-http-client', './baseConfig', './authentication', './storage', 'aurelia-framework'], function (_export) {
 	'use strict';
 
-	var HttpClient, RequestBuilder, BaseConfig, Authentication, Storage, inject, _default;
+	var HttpClient, RequestBuilder, BaseConfig, Authentication, Storage, inject, AuthHttpClientConfig;
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -21,9 +21,9 @@ System.register(['aurelia-http-client', './baseConfig', './authentication', './s
 			inject = _aureliaFramework.inject;
 		}],
 		execute: function () {
-			_default = (function () {
-				function _default(http, auth, storage, config) {
-					_classCallCheck(this, _default2);
+			AuthHttpClientConfig = (function () {
+				function AuthHttpClientConfig(http, auth, storage, config) {
+					_classCallCheck(this, _AuthHttpClientConfig);
 
 					this.http = http;
 					this.auth = auth;
@@ -31,7 +31,7 @@ System.register(['aurelia-http-client', './baseConfig', './authentication', './s
 					this.config = config.current;
 				}
 
-				_createClass(_default, [{
+				_createClass(AuthHttpClientConfig, [{
 					key: 'configure',
 					value: function configure() {
 						var _this = this;
@@ -58,12 +58,12 @@ System.register(['aurelia-http-client', './baseConfig', './authentication', './s
 					}
 				}]);
 
-				var _default2 = _default;
-				_default = inject(HttpClient, Authentication, Storage, BaseConfig)(_default) || _default;
-				return _default;
+				var _AuthHttpClientConfig = AuthHttpClientConfig;
+				AuthHttpClientConfig = inject(HttpClient, Authentication, Storage, BaseConfig)(AuthHttpClientConfig) || AuthHttpClientConfig;
+				return AuthHttpClientConfig;
 			})();
 
-			_export('default', _default);
+			_export('AuthHttpClientConfig', AuthHttpClientConfig);
 		}
 	};
 });
