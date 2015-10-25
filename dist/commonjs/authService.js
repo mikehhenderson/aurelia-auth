@@ -51,6 +51,11 @@ var AuthService = (function () {
 			return this.auth.isAuthenticated();
 		}
 	}, {
+		key: 'getTokenPayload',
+		value: function getTokenPayload() {
+			return this.auth.getPayload();
+		}
+	}, {
 		key: 'signup',
 		value: function signup(displayName, email, password) {
 			var _this = this;
@@ -78,7 +83,7 @@ var AuthService = (function () {
 
 			var loginUrl = this.auth.getLoginUrl();
 			var content;
-			if (typeof arguments[0] === 'object') {
+			if (typeof arguments[1] !== 'string') {
 				content = arguments[0];
 			} else {
 				content = { 'email': email, 'password': password };
